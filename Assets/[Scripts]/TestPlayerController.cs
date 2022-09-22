@@ -41,7 +41,8 @@ public class TestPlayerController : MonoBehaviour
     {
         foreach (var touch in Input.touches)
         {
-            transform.position = CameraRef.ScreenToWorldPoint(touch.position);
+            var destination = CameraRef.ScreenToWorldPoint(touch.position);
+            transform.position = Vector2.Lerp(transform.position, destination, (Time.deltaTime * speed));
         }
     }
     
