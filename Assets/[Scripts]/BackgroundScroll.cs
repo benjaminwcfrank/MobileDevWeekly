@@ -8,7 +8,7 @@ public class BackgroundScroll : MonoBehaviour
     public BoundryLock boundry;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Move();
         CheckBounds();

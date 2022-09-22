@@ -9,18 +9,27 @@ public class TestPlayerController : MonoBehaviour
     public float vertPos = -4;
     public BoundryLock boundries;
     private Camera CameraRef;
-
+    public bool usingMobileInput = false;
 
     private void Start()
     {
         CameraRef = Camera.main;
+
+        usingMobileInput = Application.platform == RuntimePlatform.Android ||
+                           Application.platform == RuntimePlatform.IPhonePlayer;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //ConventionalInput();
-        TouchInput();
+
+
+
+        if(usingMobileInput)
+            TouchInput();
+        else
+            ConventionalInput();
+  
         MoveChar();
 
 
